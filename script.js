@@ -1,12 +1,20 @@
-// js/script.js - Fixed animations
+// js/script.js - Fixed hamburger menu
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
     
-    // Mobile Navigation
+    // Mobile Navigation Toggle
     hamburger.addEventListener('click', function() {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
     });
     
     // Smooth scrolling for navigation links
@@ -19,10 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     behavior: 'smooth',
                     block: 'start'
                 });
-                
-                // Close mobile menu if open
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
             }
         });
     });
@@ -49,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // FAST SCROLL ANIMATIONS
+    // Scroll Animation Functionality
     function animateOnScroll() {
         const animatedElements = document.querySelectorAll('[data-animate]');
         
@@ -78,17 +82,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (delay !== '0') {
                         element.classList.add(`animate-delay-${delay}`);
                     }
-                }, parseInt(delay) * 50); // Much faster delays
+                }, parseInt(delay) * 50);
             }
         });
     }
     
     // Initial check
     animateOnScroll();
-    
-    // Check on scroll
     window.addEventListener('scroll', animateOnScroll);
-    
-    // Check on resize
     window.addEventListener('resize', animateOnScroll);
 });
