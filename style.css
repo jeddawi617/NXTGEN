@@ -1300,7 +1300,7 @@ html {
 
 }
 
-/* SIMPLE MOBILE MENU FIX */
+/* Ultra Compact Mobile Menu */
 @media (max-width: 768px) {
     .nav-menu {
         display: none;
@@ -1310,9 +1310,12 @@ html {
         width: 100%;
         background: var(--white);
         flex-direction: column;
-        padding: 2rem 0;
+        padding: 0.5rem 0;
         box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         z-index: 1000;
+        max-height: 60vh; /* Even smaller */
+        overflow-y: auto;
+        border-radius: 0 0 10px 10px;
     }
     
     .nav-menu.active {
@@ -1320,32 +1323,18 @@ html {
     }
     
     .nav-menu li {
-        margin: 0.5rem 0;
+        margin: 0.2rem 0;
         width: 100%;
         text-align: center;
     }
     
     .nav-menu a {
         display: block;
-        padding: 1rem 2rem;
-        font-size: 1.1rem;
+        padding: 0.6rem 1rem;
+        font-size: 0.95rem;
         width: 100%;
     }
     
-    .nav-menu a:hover {
-        background: var(--light-gray);
-    }
-    
-    /* Hamburger Animation */
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
-    }
+    /* Keep the same hamburger animations */
 }
+
